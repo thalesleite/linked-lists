@@ -35,17 +35,96 @@ class LinkedList {
     }
     this.size++
   }
+
   // size returns the total number of nodes in the list
-  size() {
+  getSize() {
     return this.size
   }
 
   // head returns the first node in the list
+  getHead() {
+    return this.head
+  }
+
   // tail returns the last node in the list
+  getTail() {
+    let current = this.head
+    while (current.nextNode !== null) {
+      current = current.nextNode
+    }
+    return current
+  }
+
   // at(index) returns the node at the given index
+  at(index) {
+    if (index < 0 || index >= this.size) return null
+
+    let current = this.head
+    let currentIndex = 0
+
+    while (currentIndex < index) {
+      current = current.nextNode
+      currentIndex++
+    }
+
+    return current
+  }
+
   // pop removes the last element from the list
+  pop() {
+    // empty list
+    if (this.head === null) return
+
+    // one element list
+    if (this.head.nextNode === null) {
+      this.head = null
+      this.size--
+    } else {
+      // more than one elements in the list
+      let current = this.head
+      let previous = null
+
+      while (current.nextNode !== null) {
+        previous = current
+        current = current.nextNode
+      }
+
+      previous.nextNode = null
+      this.size--
+    }
+  }
+
   // contains(value) returns true if the passed in value is in the list and otherwise returns false.
+  contains(value) {
+    let current = this.head
+
+    while (current !== null) {
+      if (current.value === value) {
+        return true
+      }
+      current = current.nextNode
+    }
+
+    return false
+  }
+
   // find(value) returns the index of the node containing value, or null if not found.
+  find(value) {
+    let current = this.head
+    let currentIndex = 0
+
+    while (current !== null) {
+      // currentIndex < index
+      if (current.value === value) {
+        return currentIndex
+      }
+      current = current.nextNode
+      currentIndex++
+    }
+
+    return null
+  }
+
   // toString represents your LinkedList objects as strings, so you can print them out and preview them in the console.
   // The format should be: ( value ) -> ( value ) -> ( value ) -> null
   display() {
@@ -55,7 +134,7 @@ class LinkedList {
       result += current.value + " -> "
       current = current.nextNode
     }
-    console.log(result + "null")
+    console.log(result + "null\n")
   }
   // ** Extra credit **
   // insertAt(value, index) that inserts a new node with the provided value at the given index.

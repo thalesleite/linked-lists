@@ -22,3 +22,21 @@ list.prepend(25)
 list.append(30)
 
 list.display()
+
+// console.log(`size: ${list.getSize()}\n`)
+// console.log("fisrt node: ", list.getHead())
+// console.log("last node: ", list.getTail())
+
+// console.log("\n-------------------------\n")
+
+// console.log("index 2: ", list.at(2))
+// console.log("index 0: ", list.at(0))
+
+list.pop()
+list.pop()
+list.display()
+
+console.log(list.contains(15))
+console.log(list.contains(10))
+
+console.log(list.find(15))
