@@ -1,4 +1,23 @@
-const LinkedList = require("./LinkedList")
+/**
+ * Linked List is a linear data structure where each element is a separate object called a node.
+ * Each node contains data and a reference (or link) to the next node in the sequence.
+ *
+ * Time complexity:
+ * append(value):   O(n)
+ * prepend(value):  O(1)
+ * getSize():       O(1)
+ * getHead():       O(1)
+ * getTail():       O(n)
+ * at(index):       O(n)
+ * pop():           O(n)
+ * contains(value): O(n)
+ * find(value):     O(n)
+ * display():       O(n)
+ * insertAt(value, index): O(n)
+ * removeAt(index): O(n)
+ *
+ * Space complexity: O(n), where n is the number of elements in the linked list.
+ */
 
 // 1. Node:
 // Each item in the list is called a node.
@@ -10,6 +29,7 @@ const LinkedList = require("./LinkedList")
 // The head is a special node that marks the start of the list.
 // If the list is empty, the head is null (meaning it doesn't point to any node).
 
+const LinkedList = require("./LinkedList")
 const list = new LinkedList()
 
 list.append(10)
